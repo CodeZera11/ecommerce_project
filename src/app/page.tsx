@@ -13,11 +13,13 @@ export default async function Home() {
     <div>
       <div className="hero rounded-xl bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <Image src={`${products[0].imageUrl}`} alt='hero image' width={400} height={800} className="max-w-sm rounded-lg shadow-2xl w-full" priority />
+        <Link href={'/product/'+products[0].id}>
+          <Image src={`${products[0].imageUrl}`} alt='hero image' width={400} height={800} className="max-w-sm rounded-lg shadow-2xl w-full" priority />
+        </Link>
         <div>
           <h1 className="text-5xl font-bold">{products[0].name}</h1>
           <p className="py-6">{products[0].description}</p>
-          <Link href={'/products/' + products[0].id} className='btn btn-primary'>Check it out</Link>
+          <Link href={'/product/' + products[0].id} className='btn btn-primary'>Check it out</Link>
         </div>
       </div>
     </div>
