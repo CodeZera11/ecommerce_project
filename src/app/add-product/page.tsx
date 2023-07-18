@@ -26,9 +26,11 @@ async function addProduct(formData: FormData) {
         throw Error("Missing requied feilds");
     }
 
-    await prisma.product.create({
-        data: { name, description, imageUrl, price },
-    });
+    for (let index = 0; index < 5; index++) {
+        await prisma.product.create({
+            data: { name, description, imageUrl, price },
+        });
+    }
 
     redirect("/");
 }
