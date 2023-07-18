@@ -6,6 +6,8 @@ import formatPrice from "@/lib/format";
 export default async function CartPage() {
     const cart = await getCart();
 
+    const strSubtotal = cart?.subTotal.toString() || "0";
+
     return(
         <div>
             <h1 className="mb-6 text-3xl font-bold">Your Cart</h1>
@@ -14,7 +16,7 @@ export default async function CartPage() {
             ))}
             {!cart?.items.length && <p>Your Cart is Empty!</p>}
             <div className="flex flex-col items-end sm:items-center my-3">
-                <p>Total: {formatPrice(cart?.subTotal)}</p>
+                <p>Total: {formatPrice(strSubtotal)}</p>
                 <button className="btn btn-primary sm:w-[200px]">Checkout</button>
             </div>
         </div>
