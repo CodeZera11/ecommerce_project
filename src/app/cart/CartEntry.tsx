@@ -25,6 +25,9 @@ export default function CartEntry({cartItem: {product, quantity}, setProductQuan
         )
     }
 
+    const total  = parseInt(product.price) * parseInt(qty)
+    const stringTotal = total.toString()
+
     const [isPending, startTransition] = useTransition();
 
     return (
@@ -47,8 +50,7 @@ export default function CartEntry({cartItem: {product, quantity}, setProductQuan
                         </select>
                     </div>
                     <div className="flex items-center gap-3">
-                    {/*  @ts-ignore */}
-                        Total: {formatPrice(product.price * qty)}
+                        Total: {formatPrice(stringTotal)}
                     {isPending && <span className="loading loading-spinner loading-sm" />}
                     </div>
                 </div>
