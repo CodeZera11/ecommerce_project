@@ -47,6 +47,7 @@ export default function CartEntry({cartItem: {product, quantity}, setProductQuan
                         </select>
                     </div>
                     <div className="flex items-center gap-3">
+                    {/*  @ts-ignore */}
                         Total: {formatPrice(product.price * qty)}
                     {isPending && <span className="loading loading-spinner loading-sm" />}
                     </div>
